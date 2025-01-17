@@ -43,14 +43,14 @@ const register = async (req, res) => {
                         secure: true,
                     }
                 ).status(201).json({
-                    _id: user._id
+                    _id: user._id,
                 });
             }
         )
 
     }catch(err){
         res.status(500).json({
-            message: "Server Error in here"
+            message: "Server Error in Registering"
         });
     }
 }
@@ -106,7 +106,7 @@ const login = async (req, res) => {
 
     } catch (error) {
         res.status(500).json({
-            message: "Server Error"
+            message: "Server Error in Login"
         });
     }
 }

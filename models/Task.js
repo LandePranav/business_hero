@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const salt = await bcrypt.generateSaltSync(10);
 
 const taskSchema = new mongoose.Schema({
     title: {
