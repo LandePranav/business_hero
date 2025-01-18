@@ -2,6 +2,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken")
 const User = require("../models/User");
 
+
+//function to register user
 const register = async (req, res) => {
     const {username, password} = req.body;
 
@@ -20,7 +22,7 @@ const register = async (req, res) => {
         });
 
         // console.log(user);
-
+        // creating and sending cookie on successful register, using jsonwebtoken
         const payload = {_id: user._id};
         jwt.sign(
             payload, 
@@ -77,6 +79,7 @@ const login = async (req, res) => {
 
         const payload = {_id: user._id};
 
+        //cookie on successful login
         jwt.sign(
             payload, 
             process.env.JWT_SECRET, 

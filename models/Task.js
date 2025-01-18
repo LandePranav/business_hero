@@ -21,5 +21,6 @@ const taskSchema = new mongoose.Schema({
     }
 }, {timestamps: true});
 
+//enum in status limits the input options to specified array
 
 module.exports = mongoose.model("Task", taskSchema);

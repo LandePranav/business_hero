@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
+//middleware auth for protected routes
 const authMiddleware = async (req, res, next) => {
     const token = req.cookies?.token;
 
@@ -19,10 +20,10 @@ const authMiddleware = async (req, res, next) => {
                 message: "User not found!",
             });
         }
-
+        
+        //attaching user to the req and forwarding
         req.user = user;
         next();
-        
     } catch (error) {
         res.status(401).json({
             message: 'Token is not valid'

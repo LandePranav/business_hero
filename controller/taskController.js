@@ -44,6 +44,7 @@ const updateTask = async (req, res) => {
     const {title, description, status} = req.body;
 
     try {
+        //find task with matching _id and userId
         const task = await Task.findOneAndUpdate(
             {_id:id, user: req.user._id},
             {title, description, status},

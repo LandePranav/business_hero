@@ -10,19 +10,27 @@ const PORT = process.env.PORT || 5000 ;
 
 const app = express();
 
+
+//using middlewares
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
+
+//route paths
 app.use("/api/auth", authRoutes);
 app.use("/api/task", taskRoutes);
 
+//specifying listening port
 app.listen(PORT, ()=>{
     console.log("Server is Running on port: ", PORT);
 });
 
-connectDB(); //Connection to mongoDB
+//Connection to mongoDB
+connectDB(); 
 
+
+//testing
 app.get("/api/test", (req,res)=>{
     res.send("Server is Up and Running!");
 });
